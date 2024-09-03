@@ -11,6 +11,10 @@ app.get('/', (req, res) => {
   res.render('index')
 })
 
+app.get('/ask', (req, res) => {
+  res.render("pages/ask")
+})
+
 // listen
 app.listen("3000", () => {
   console.log('liten on 3000')
