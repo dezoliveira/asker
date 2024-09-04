@@ -1,3 +1,18 @@
+@import "../lib/nord/nord.css";
+
 body {
-  background-color: #0284c7;
+  background-color: var(--nord0);
+  color: var(--nord6);
+}
+
+.btn-primary {
+  background-color: var(--nord10);
+  color: var(--nord4);
+  border: var(--nord6);
+}
+
+.btn-primary:hover {
+  background-color: var(--nord10);
+  color: var(--nord6);
+  opacity: 0.9;
 }
