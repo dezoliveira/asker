@@ -16,3 +16,8 @@ body {
   color: var(--nord6);
   opacity: 0.9;
 }
+
+.btn.btn-primary:active {
+  background-color: var(--nord10);
+  color: var(--nord6);
+}
