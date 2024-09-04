@@ -5,26 +5,45 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/css/ask.css">
 </head>
 <body>
+  <!-- <nav class="navbar navbar-light bg-primary">
+    <a class="navbar-brand" href="/">
+      <img src="/images/logo.jpg">
+    </a>
+  </nav> -->
+  <nav class="navbar bg-body-tertiary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/">
+        <img src="/images/logo.png" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
+        Question
+      </a>
+    </div>
+  </nav>
   <div class="container col-lg-4 col-md-4 col-sm-12 p-4">
-    <h3>Ask a question</h3>
-    <hr />
-    <form class="d-flex flex-column gap-4">
-      <!-- Title -->
-      <div>
-        <label>Title</label>
-        <input type="text" placeholder="Type a title" class="form-control" />
+    <div class="card">
+      <div class="card-header">
+        <h3>Ask a question</h3>
       </div>
-      <!-- Description -->
-      <div>
-        <label>Description</label>
-        <textarea placeholder="Where is foo ?" class="form-control"></textarea>
+      <div class="card-body">
+        <form class="d-flex flex-column gap-4">
+          <!-- Title -->
+          <div>
+            <label>Title</label>
+            <input type="text" placeholder="Type a title" class="form-control" />
+          </div>
+          <!-- Description -->
+          <div>
+            <label>Description</label>
+            <textarea placeholder="Where is foo ?" class="form-control"></textarea>
+          </div>
+          <div class="btn-group d-flex align-center justify-center  col-lg-2 col-md-2 col-sm-12">
+            <button class="btn btn-primary">Ask</button>
+          </div>
+        </form>
       </div>
-      <div class="btn-group d-flex align-center justify-center  col-lg-2 col-md-2 col-sm-12">
-        <button class="btn btn-success">Ask</button>
-      </div>
-    </form>
+    </div>
   </div>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
