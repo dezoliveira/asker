@@ -1,5 +1,5 @@
 {
-  "name": "asker",
+  "name": "question",
   "version": "1.0.0",
   "description": "Uma plataforma de perguntas e respostas ao estilo yahoo",
   "main": "index.js",
