@@ -3,6 +3,21 @@ const express = require("express")
 const bodyParser = require("body-parser")
 const app = express()
 
+// database
+const connection = require("./database/database")
+
+// model
+const Question = require('./database/model/Question')
+
+connection
+  .authenticate()
+  .then(() => {
+    console.log('connection ok')
+  })
+  .catch((err) => {
+    console.log(err)
+  })
+
 // body parser
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
@@ -23,15 +38,13 @@ app.get('/ask', (req, res) => {
 app.post('/create', (req, res) => {
   let title = req.body.title
   let description = req.body.description
-  let id = 0
 
-  res.send(
-    {
-      'id': id++,
-      'title': title,
-      'description': description
-    }
-  )
+  Question.create({
+    title: title,
+    description: description
+  }).then(() => {
+    res.redirect('/ask')
+  })
 })
 
 // listen
