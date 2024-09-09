@@ -28,11 +28,20 @@ app.use(express.static('public'))
 
 // routes
 app.get('/', (req, res) => {
-  res.render('index')
+  res.render("index")
 })
 
 app.get('/ask', (req, res) => {
   res.render("pages/ask")
+})
+
+app.get('/feed', (req, res) => {
+  Question.findAll({ row: true })
+    .then((query) => {
+      res.render("pages/feed", {
+        questions: query
+      })
+    })
 })
 
 app.post('/create', (req, res) => {
