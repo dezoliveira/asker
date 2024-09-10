@@ -1,1 +1,11 @@
-<h1>Ask page</h1>
+<%- include ("../partials/header") %>
+<body>
+  <%- include ("../partials/navbar.ejs") %>
+  <div class="container">
+    <hr>
+    <h1><%= question.title %></h1>
+    <p><%= question.description %></p>
+    <hr>
+  </div>
+</body>
+<% include ("../partials/footer.ejs") %>
