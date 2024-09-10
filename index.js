@@ -36,7 +36,9 @@ app.get('/ask', (req, res) => {
 })
 
 app.get('/feed', (req, res) => {
-  Question.findAll({ row: true })
+  Question.findAll({ row: true, order:[
+    ['id', 'DESC']
+  ] })
     .then((query) => {
       res.render("pages/feed", {
         questions: query
@@ -53,6 +55,20 @@ app.post('/create', (req, res) => {
     description: description
   }).then(() => {
     res.redirect('/feed')
+  })
+})
+
+app.get('/question/:id', (req, res) => {
+  let id = req.params.id
+
+  Question.findOne({
+    where: {id: id}
+  }).then(question => {
+    if (question != undefined) {
+      res.render('pages/question')
+    } else {
+      res.redirect('/')
+    }
   })
 })
 
