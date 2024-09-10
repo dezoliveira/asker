@@ -22,6 +22,40 @@ body {
   color: var(--nord6);
 }
 
+.btn-success {
+  background-color: var(--nord7);
+  color: var(--nord6);
+  border: var(--nord7);
+}
+
+.btn-success:hover {
+  background-color: var(--nord7);
+  color: var(--nord6);
+  opacity: 0.9;
+}
+
+.btn.btn-success:active {
+  background-color: var(--nord7);
+  color: var(--nord6);
+}
+
+.btn-danger {
+  background-color: var(--nord11);
+  color: var(--nord4);
+  border: var(--nord11);
+}
+
+.btn-danger:hover {
+  background-color: var(--nord11);
+  color: var(--nord6);
+  opacity: 0.9;
+}
+
+.btn.btn-danger:active {
+  background-color: var(--nord11);
+  color: var(--nord6);
+}
+
 strong {
   color: var(--nord11);
 }
