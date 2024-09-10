@@ -24,7 +24,9 @@
             <p class=""><%= question.description%></p>
           </div>
           <div class="card-footer d-flex align-items-center justify-content-between">
-            <button class="btn btn-primary">Answer</button>
+            <a href="/question/<%= question.id %>">
+              <button class="btn btn-primary">Answer</button>
+            </a>
             <small>
 							<p class="m-0">
 								<strong>Criado em: </strong>
