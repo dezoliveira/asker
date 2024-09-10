@@ -6,8 +6,9 @@ const app = express()
 // database
 const connection = require("./database/database")
 
-// model
+// models
 const Question = require('./database/model/Question')
+const Answer = require('./database/model/Answer')
 
 connection
   .authenticate()
