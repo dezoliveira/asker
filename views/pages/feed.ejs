@@ -26,7 +26,11 @@
           <div class="card-footer d-flex align-items-center justify-content-between">
             <button class="btn btn-primary">Answer</button>
             <small>
-              <p></p><strong>Criado em: </strong><%= question.createdAt%></small>
+							<p class="m-0">
+								<strong>Criado em: </strong>
+								<%= question.createdAt.toLocaleDateString() + " - " + question.createdAt.toLocaleTimeString()%>
+							</p>
+						</small>
           </div>
         </div>
       <% }) %>
