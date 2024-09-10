@@ -6,6 +6,14 @@
     <h1><%= question.title %></h1>
     <p><%= question.description %></p>
     <hr>
+    <form class="d-flex flex-column gap-2">
+      <h3>Answer</h3>
+      <label>Anwser the question</label>
+      <textarea placeholder="Type your answer" class="form-control" placeholder="Where is foo ?" rows="12" name="body"></textarea>
+      <div>
+        <button type="submit" class="btn btn-success">Answer</button>
+      </div>
+    </form>
   </div>
 </body>
 <% include ("../partials/footer.ejs") %>
