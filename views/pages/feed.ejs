@@ -14,21 +14,29 @@
         <a href="/ask" class="btn btn-success">+ New Question</a>
       </div>
     </div>
-    <% questions.forEach(question => { %>
-      <div class="card">
-        <div class="card-header">
-          <h3><%= question.title %></h3>
+    <% if (questions.length) { %>
+      <% questions.forEach(question => { %>
+        <div class="card">
+          <div class="card-header">
+            <h3><%= question.title %></h3>
+          </div>
+          <div class="card-body">
+            <p class=""><%= question.description%></p>
+          </div>
+          <div class="card-footer d-flex align-items-center justify-content-between">
+            <button class="btn btn-primary">Answer</button>
+            <small>
+              <p></p><strong>Criado em: </strong><%= question.createdAt%></small>
+          </div>
         </div>
-        <div class="card-body">
-          <p class=""><%= question.description%></p>
-        </div>
-        <div class="card-footer d-flex align-items-center justify-content-between">
-          <button class="btn btn-primary">Answer</button>
-          <small>
-            <p></p><strong>Criado em: </strong><%= question.createdAt%></small>
-        </div>
-      </div>
-    <% }) %>
+      <% }) %>
+    <% } else { %>
+				<div class="card">
+					<div class="card-body">
+						<p>Sorry, no questions for now</p>
+					</div>
+				</div>
+		<% } %>
   </div>
 </body>
 <%- include ("../partials/footer") %>

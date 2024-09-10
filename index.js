@@ -52,7 +52,7 @@ app.post('/create', (req, res) => {
     title: title,
     description: description
   }).then(() => {
-    res.redirect('/ask')
+    res.redirect('/feed')
   })
 })
 
