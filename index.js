@@ -102,9 +102,7 @@ app.get('/question/:id', (req, res) => {
 app.post("/answer", (req, res) => {
   let body = req.body.body
   let questionId = req.body.question
-  let username = req.body.username
-
-  console.log(questionId)
+  let username = req.body.username || 'Anonymous'
 
   // create the answer
   Answer.create({

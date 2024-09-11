@@ -29,7 +29,9 @@
       </div>
     </div>
     <div class="row">
-      <h3>Answers</h3>
+      <% if (answer.length > 0){ %>
+        <h3 class="m-0">Answers</h3>
+      <% } %>
     </div>
     <% answer.forEach(answer => { %>
       <div class="card">
