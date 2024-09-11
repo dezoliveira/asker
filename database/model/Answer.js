@@ -1,7 +1,7 @@
 const Sequeize = require('sequelize')
 const connection = require('../database')
 
-const Answer = connection.define("anwsers", {
+const Answer = connection.define("answers", {
   body: {
     type: Sequeize.TEXT,
     allowNull: false,
