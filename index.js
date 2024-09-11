@@ -73,7 +73,7 @@ app.get('/question/:id', (req, res) => {
   }).then(question => {
     if (question != undefined) {
 
-      // filter anwer by question id
+      // filter answer by question id
       Answer.findAll({
         where: { questionId: question.id }
       }).then(answer => {
