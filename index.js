@@ -78,7 +78,6 @@ app.get('/question/:id', (req, res) => {
   
   .then(question => {
     if (question != undefined) {
-
       // filter answer by question id
       Answer.findAll({
         where: { questionId: question.id },
@@ -118,6 +117,5 @@ app.post("/answer", (req, res) => {
 
 // listen server
 app.listen("3000", () => {
-  console.table(
-    ['Listen on http://localhost:3000'])
+  console.table(['Listen on http://localhost:3000'])
 })
