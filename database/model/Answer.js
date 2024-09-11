@@ -10,6 +10,11 @@ const Answer = connection.define("answers", {
   questionId: {
     type: Sequeize.INTEGER,
     allowNull: false
+  },
+
+  username: {
+    type: Sequeize.STRING,
+    allowNull: false
   }
 })
 

@@ -1,17 +1,23 @@
 <%- include ("../partials/header") %>
 <body>
   <%- include ("../partials/navbar.ejs") %>
-  <div class="container col-lg-8 col-md-8 col-sm-12 p-4 d-flex flex-column justify-content-center gap-4" style="height: 92vh;">
+  <div class="container col-lg-8 col-md-8 col-sm-12 p-4 d-flex flex-column justify-content-center gap-4" style="height: 100%;">
     <div class="card">
       <div class="card-header">
         <h1><%= question.title %></h1>
         <!-- <p><%= question.description %></p> -->
       </div>
       <div class="card-body">
-        <form method="POST" action="/answer" class="d-flex flex-column gap-2">
-          <h3>Answer</h3>
-          <label>Anwser the question: <strong><%= question.title %></strong></label>
-          <textarea placeholder="Type your answer" class="form-control" placeholder="Where is foo ?" rows="12" name="body"></textarea>
+        <form method="POST" action="/answer" class="d-flex flex-column gap-4">
+          <h3 class="m-0">Answer</h3>
+          <div>
+            <label>Username:</label>
+            <input class="form-control" type="username" placeholder="Type a username" name="username" />
+          </div>
+          <div>
+            <label>Anwser the question: <strong><%= question.title %></strong></label>
+            <textarea placeholder="Type your answer" class="form-control" placeholder="Where is foo ?" rows="12" name="body"></textarea>
+          </div>
           <input type="text" name="question" value="<%= question.id %>" hidden />
           <div class="form-buton">
             <button class="btn btn-success">Submit</button>
@@ -22,23 +28,20 @@
         </form>
       </div>
     </div>
-    <div>
+    <div class="row">
+      <h3>Answers</h3>
+    </div>
+    <% answer.forEach(answer => { %>
       <div class="card">
         <div class="card-header">
-          <h3>Answers</h3>
+          <h3><%= answer.username %></h3>
         </div>
         <div class="card-body">
-          <ul class="list-group">
-            <% answer.forEach(answer => { %>
-              <li class="list-group-item p-4">
-                <h4><%= answer.body %></h4>
-                <small><%= answer.createdAt %></small>
-              </li>
-            <% }) %>
-          </ul>
+          <h4><%= answer.body %></h4>
+          <small><%= answer.createdAt %></small>
         </div>
       </div>
-    </div>
+    <% }) %>
   </div>
 </body>
 <% include ("../partials/footer.ejs") %>

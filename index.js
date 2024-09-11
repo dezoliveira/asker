@@ -41,14 +41,16 @@ app.get('/ask', (req, res) => {
 
 // get feed
 app.get('/feed', (req, res) => {
-  Question.findAll({ row: true, order:[
-    ['id', 'DESC']
-  ] })
-    .then((query) => {
-      res.render("pages/feed", {
-        questions: query
-      })
+  Question.findAll({ 
+    row: true,
+    order:[['id', 'DESC']]
+  })
+
+  .then((query) => {
+    res.render("pages/feed", {
+      questions: query
     })
+  })
 })
 
 // create a new question
@@ -59,7 +61,9 @@ app.post('/create', (req, res) => {
   Question.create({
     title: title,
     description: description
-  }).then(() => {
+  })
+
+  .then(() => {
     res.redirect('/feed')
   })
 })
@@ -70,18 +74,24 @@ app.get('/question/:id', (req, res) => {
 
   Question.findOne({
     where: {id: id}
-  }).then(question => {
+  })
+  
+  .then(question => {
     if (question != undefined) {
 
       // filter answer by question id
       Answer.findAll({
-        where: { questionId: question.id }
-      }).then(answer => {
+        where: { questionId: question.id },
+        order: [['id', 'DESC']]
+      })
+
+      .then(answer => {
         res.render('pages/question', {
           question: question,
-          answer: answer
+          answer: answer,
         })
       })
+
     } else {
       res.redirect('/')
     }
@@ -92,14 +102,18 @@ app.get('/question/:id', (req, res) => {
 app.post("/answer", (req, res) => {
   let body = req.body.body
   let questionId = req.body.question
+  let username = req.body.username
 
   console.log(questionId)
 
   // create the answer
   Answer.create({
     body: body,
-    questionId: questionId
-  }).then(() => {
+    questionId: questionId,
+    username: username
+  })
+
+  .then(() => {
     res.redirect('/question/' + questionId)
   })
 })
