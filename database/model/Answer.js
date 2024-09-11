@@ -7,7 +7,7 @@ const Answer = connection.define("answers", {
     allowNull: false,
   },
 
-  askId: {
+  questionId: {
     type: Sequeize.INTEGER,
     allowNull: false
   }

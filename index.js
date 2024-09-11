@@ -28,14 +28,18 @@ app.set('view engine', 'ejs')
 app.use(express.static('public'))
 
 // routes
+
+// get index
 app.get('/', (req, res) => {
   res.render("index")
 })
 
+// get ask page
 app.get('/ask', (req, res) => {
   res.render("pages/ask")
 })
 
+// get feed
 app.get('/feed', (req, res) => {
   Question.findAll({ row: true, order:[
     ['id', 'DESC']
@@ -47,6 +51,7 @@ app.get('/feed', (req, res) => {
     })
 })
 
+// create a new question
 app.post('/create', (req, res) => {
   let title = req.body.title
   let description = req.body.description
@@ -59,6 +64,7 @@ app.post('/create', (req, res) => {
   })
 })
 
+// get question by ID
 app.get('/question/:id', (req, res) => {
   let id = req.params.id
 
@@ -75,7 +81,24 @@ app.get('/question/:id', (req, res) => {
   })
 })
 
-// listen
+// post answer by ID
+app.post("/answer", (req, res) => {
+  let body = req.body.body
+  let questionId = req.body.question
+
+  console.log(questionId)
+
+  // create the answer
+  Answer.create({
+    body: body,
+    questionId: questionId
+  }).then(() => {
+    res.redirect('/question/' + questionId)
+  })
+})
+
+// listen server
 app.listen("3000", () => {
-  console.log('liten on 3000')
+  console.table(
+    ['Listen on http://localhost:3000'])
 })

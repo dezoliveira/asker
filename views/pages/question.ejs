@@ -8,7 +8,7 @@
         <!-- <p><%= question.description %></p> -->
       </div>
       <div class="card-body">
-        <form class="d-flex flex-column gap-2">
+        <form method="POST" action="/answer" class="d-flex flex-column gap-2">
           <h3>Answer</h3>
           <label>Anwser the question: <strong><%= question.title %></strong></label>
           <textarea placeholder="Type your answer" class="form-control" placeholder="Where is foo ?" rows="12" name="body"></textarea>
